@@ -21,67 +21,67 @@ function wst_display_text_area( array $layout ) {
 	<?php
 }
 
-////SLIDER
-///**
-// * Display a slider
-// *
-// * @since 1.0.0
-// *
-// * @param $layout
-// *
-// * @return void
-// */
-//function wst_display_slider( array $layout ) {
-//	if ( ! $layout['crb_slides'] ) {
-//		return;
-//	}
-//	include( 'views/slider-view.php' );
-//}
-//
-///**
-// * Display the slides and caption inside the slider
-// *
-// * @since 1.0.0
-// *
-// * @param $layout
-// *
-// * @return void
-// */
-//function wst_display_slides( array $layout ) {
-//	$slides = $layout['crb_slides'];
-//	foreach ( $slides as $slide ) {
-//		$slide_id              = esc_html( $slide['crb_slider_images'] );
-//		$slide_image           = wp_get_attachment( $slide_id );
-//		$slide_url             = esc_url( $slide_image['src'] );
-//		$slide_alt             = esc_attr( $slide_image['alt'] );
-//		$slide_title           = esc_attr( $slide_image['title'] );
-//		$slide_caption         = $slide['crb_slide_caption'];
-//		$slide_caption_classes = esc_attr( $slide['crb_slide_caption_classes'] );
-//		$badge_title           = esc_html( $slide['crb_badge_title'] );
-//		$badge_classes         = esc_attr( $slide['crb_badge_classes'] );
-//		$slide_choice          = $slide['crb_type_of_media'];
-//		$vimeo                 = $slide['crb_vimeo'];
-//		$youtube               = $slide['crb_youtube'];
-//		include( 'views/slide-view.php' );
-//	}
-//}
-//
-///**
-// * Display the dotnav in sliders
-// *
-// * @since 1.0.0
-// *
-// * @param $layout
-// *
-// * @return void
-// */
-//function wst_display_dotnav_items( array $layout ) {
-//	$slides       = $layout['crb_slides'];
-//	$total_nb_of_slides = count( $slides );
-//	for ( $nb_of_slides = 0; $nb_of_slides < $total_nb_of_slides; $nb_of_slides ++ ) : ?>
-<!--		<li data-uk-slideshow-item="--><?php //echo (int) $nb_of_slides; ?><!--"><a href="#"></a></li>-->
-<!--	--><?php //endfor;
-//}
+//SLIDER
+/**
+ * Display a slider
+ *
+ * @since 1.0.0
+ *
+ * @param $layout
+ *
+ * @return void
+ */
+function wst_display_slider( array $layout ) {
+	if ( ! $layout['crb_slides'] ) {
+		return;
+	}
+	include( 'views/slider-view.php' );
+}
+
+/**
+ * Display the slides and caption inside the slider
+ *
+ * @since 1.0.0
+ *
+ * @param $layout
+ *
+ * @return void
+ */
+function wst_display_slides( array $layout ) {
+	$slides = $layout['crb_slides'];
+	foreach ( $slides as $slide ) {
+		$slide_id              = esc_html( $slide['crb_slider_images'] );
+		$slide_image           = wp_get_attachment( $slide_id );
+		$slide_url             = esc_url( $slide_image['src'] );
+		$slide_alt             = esc_attr( $slide_image['alt'] );
+		$slide_title           = esc_attr( $slide_image['title'] );
+		$slide_caption         = $slide['crb_slide_caption'];
+		$slide_caption_classes = esc_attr( $slide['crb_slide_caption_classes'] );
+		$badge_title           = esc_html( $slide['crb_badge_title'] );
+		$badge_classes         = esc_attr( $slide['crb_badge_classes'] );
+		$slide_choice          = $slide['crb_type_of_media'];
+		$vimeo                 = $slide['crb_vimeo'];
+		$youtube               = $slide['crb_youtube'];
+		include( 'views/slide-view.php' );
+	}
+}
+
+/**
+ * Display the dotnav in sliders
+ *
+ * @since 1.0.0
+ *
+ * @param $layout
+ *
+ * @return void
+ */
+function wst_display_dotnav_items( array $layout ) {
+	$slides       = $layout['crb_slides'];
+	$total_nb_of_slides = count( $slides );
+	for ( $nb_of_slides = 0; $nb_of_slides < $total_nb_of_slides; $nb_of_slides ++ ) : ?>
+		<li data-uk-slideshow-item="<?php echo (int) $nb_of_slides; ?>"><a href="#"></a></li>
+	<?php endfor;
+}
 
 //SLIDESHOW PANEL
 /**
