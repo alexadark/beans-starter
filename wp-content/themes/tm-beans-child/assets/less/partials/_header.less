@@ -1,0 +1,29 @@
+
+.tm-header{
+  border-bottom:none;
+  padding: @global-margin;
+  background:rgba(0,0,0,.4);
+  &.uk-active{
+    background: @white;
+    border-bottom: 1px solid @global-border;
+    .tm-site-branding a{
+      color:@secondary-color;
+    }
+  }
+}
+.tm-header-wrapper {
+  @media (min-width: @breakpoint-medium) {
+    border-bottom: @site-frame*2 solid @white;
+    margin-bottom: -@site-frame*2;
+  }
+
+}
+.tm-site-branding{
+  a{
+    font-weight: 400;
+    color: @white;
+    text-transform: uppercase;
+    border-bottom: 3px solid @primary-color;
+
+  }
+}
