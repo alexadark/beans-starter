@@ -49,6 +49,15 @@ function wst_add_google_fonts() {
 |Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i', false );
 }
 
+// Remove this action and callback function if you are not adding CSS in the style.css file.
+                                                                                      add_action( 'wp_enqueue_scripts', 'beans_child_enqueue_assets' );
+
+function beans_child_enqueue_assets() {
+
+	wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css' );
+
+}
+
 function wst_add_theme_style_as_compiler_fragment() {
 	$styles = array(
 		array(
