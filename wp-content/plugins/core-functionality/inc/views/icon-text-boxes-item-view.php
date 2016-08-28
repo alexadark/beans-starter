@@ -48,7 +48,7 @@ endif;
 		echo beans_close_markup( 'icon_box_content_wrapper'.$filter.'', 'p' );
 	}
 	if ( $button_label ) {
-		echo beans_open_markup( 'icon_text_box_button'.$filter.'', 'a', array(
+		echo beans_open_markup( 'icon_box_content_wrapper'.$filter.'', 'a', array(
 			'class' => 'uk-button uk-text-center',
 			'href'  => $button_link
 		) );

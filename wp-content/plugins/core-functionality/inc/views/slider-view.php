@@ -2,8 +2,8 @@
 $id = esc_attr($layout['crb_markupid']);
 $filter = $id ?'[_'.$id.']' : '';
 echo beans_open_markup('slider_wrapper'.$filter.'','div',
-	array('class' => 'uk-slidenav-position uk-margin-large',
-	      'data-uk-slideshow' => '{height:\'400px\', animation:\'swipe\',kenburns:true}'
+	array('class' => 'tm-slider uk-slidenav-position uk-margin-large',
+	      'data-uk-slideshow' => '{height:500, animation:\'swipe\',kenburns:true}'
 	));?>
 	<ul class="uk-slideshow">
 		<?php wst_get_layout_items($layout,'crb_slides','views/slide-view.php'); ?>

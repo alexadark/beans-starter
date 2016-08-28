@@ -2,7 +2,6 @@
  * In this file, you may style your site using CSS or LESS as well as overwrite UIkit LESS variables.
  * Make sure to enable development mode via the Admin->Appearance->Settings option while working on your website. LESS will then be processed on the fly.
  */
-
 /*--------------------------------------------------------------
 Fonts
 --------------------------------------------------------------*/
@@ -51,209 +50,35 @@ Fonts
 }
 
 
-/*--------------------------------------------------------------
-Site
---------------------------------------------------------------*/
-a{
-  .transition(color);
-}
-.tm-site{
-  @media (min-width: @breakpoint-medium) {
-    border: @site-frame solid @white;
-  }
-}
-.tm-main{
-  background: @global-background;
-}
-
-
-/*--------------------------------------------------------------
-TYPOGRAPHY
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-Header
---------------------------------------------------------------*/
-.tm-header{
-  //border-bottom:none;
-  padding: @global-margin;
-  &.uk-active{
-    background: @white;
-    border-bottom: 1px solid @global-border;
-    .tm-site-branding a{
-      color:@global-color;
-    }
-  }
-}
-.tm-header-wrapper {
-  @media (min-width: @breakpoint-medium) {
-    border-bottom: @site-frame*2 solid @white;
-    margin-bottom: -@site-frame*2;
-  }
-
-}
-.tm-site-branding{
-  a{
-    font-weight: 400;
-    color: @global-color;
-    text-transform: uppercase;
-    border-bottom: 3px solid @primary-color;
-
-  }
-}
-/*--------------------------------------------------------------
-Header nav
---------------------------------------------------------------*/
-.tm-header{
-  .uk-navbar-nav > li > a{
-    color: @global-color;
-    font-weight: 600;
-    font-size:15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    &:hover{
-      color:@primary-color;
-    }
-
-  }
-  &.uk-active {
-    .uk-navbar-nav > li > a {
-      color: @global-color;
-      font-weight: 600;
-      &:hover{
-        color: @primary-color;
-      }
-    }
-  }
-}
 
 
 
 
-/*--------------------------------------------------------------
-sidebar
---------------------------------------------------------------*/
-.tm-widget{
-  margin-bottom: 40px;
-}
-.tm-secondary{
-  margin-bottom: 100px;
-}
-
-
-/*--------------------------------------------------------------
-content
---------------------------------------------------------------*/
-.tm-main{
-  //background: @white;
-}
 
 
 
-/*--------------------------------------------------------------
-footer
---------------------------------------------------------------*/
-.tm-footer{
-  background: @secondary-color;
-  color:@white;
-}
-.tm-fat-footer{
-  background: @bg-grey;
-}
 
 
 
-/*--------------------------------------------------------------
-parallax
---------------------------------------------------------------*/
-.tm-parallax-content{
-  width: 100%;
-}
 
 
 
-//CODROPS OVERLAYS
-.tm-overlay-layla {
 
-  .uk-overlay {
 
-    > .uk-overlay-panel {
 
-      padding: (@global-margin + 10px);
 
-      // Large screen
-      @media (min-width: @breakpoint-xlarge) { padding: (@global-margin-large + 10px); }
 
-      > * { z-index: 1; }
 
-      &:before,
-      &:after {
-        position: absolute;
-        content: '';
-        opacity: 0;
-        -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
-        transition: opacity 0.4s, transform 0.4s;
-      }
 
-      &:before{
-        top: @global-margin;
-        right: @global-margin-small;
-        bottom: @global-margin;
-        left: @global-margin-small;
-        border-top: 1px solid @theme_overlay-border;
-        border-bottom: 1px solid @theme_overlay-border;
-        -webkit-transform: scale(0,1);
-        transform: scale(0,1);
-        -webkit-transform-origin: 0 0;
-        transform-origin: 0 0;
 
-        // Large screen
-        @media (min-width: @breakpoint-xlarge) {
-          top: @global-margin-large;
-          right: @global-margin;
-          bottom: @global-margin-large;
-          left: @global-margin;
-        }
-      }
 
-      &:after {
-        top: @global-margin-small;
-        right: @global-margin;
-        bottom: @global-margin-small;
-        left: @global-margin;
-        border-right: 1px solid @theme_overlay-border;
-        border-left: 1px solid @theme_overlay-border;
-        -webkit-transform: scale(1,0);
-        transform: scale(1,0);
-        -webkit-transform-origin: 100% 0;
-        transform-origin: 100% 0;
 
-        // Large screen
-        @media (min-width: @breakpoint-xlarge) {
-          top: @global-margin;
-          right: @global-margin-large;
-          bottom: @global-margin;
-          left: @global-margin-large;
-        }
-      }
 
-    }
 
-    &:hover > .uk-overlay-panel:before,
-    &:hover > .uk-overlay-panel:after {
-      opacity: 1;
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
 
-    &:hover > .uk-overlay-panel:after {
-      -webkit-transition-delay: 0.1s;
-      transition-delay: 0.1s;
-    }
 
-  }
 
-}
+
 
 
 

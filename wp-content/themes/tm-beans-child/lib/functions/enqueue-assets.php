@@ -6,14 +6,36 @@ function wst_enqueue_uikit_assets() {
 
 // Enqueue uikit overwrite theme folder
 	beans_uikit_enqueue_theme( 'beans_child', CHILD_URL . '/assets/less/initial-theme' );
+//Add the theme style as a uikit fragment to have access to all the variables
+	beans_compiler_add_fragment( 'uikit', array(
 
-// Add the theme style as a uikit fragment to have access to all the variables
-	beans_compiler_add_fragment( 'uikit', CHILD_URL . '/assets/less/style.less', 'less' );
-	beans_compiler_add_fragment( 'uikit', CHILD_URL . '/assets/less/mymixins.less', 'less' );
+		CHILD_URL . '/assets/less/mymixins.less',
 
+		CHILD_URL . '/assets/less/partials/default.less',
+		CHILD_URL . '/assets/less/partials/typo.less',
+		CHILD_URL . '/assets/less/layouts/text-area.less',
+		CHILD_URL . '/assets/less/layouts/icon-text-boxes.less',
+		CHILD_URL . '/assets/less/layouts/parallax.less',
+		CHILD_URL . '/assets/less/layouts/lightbox-gallery.less',
+		CHILD_URL . '/assets/less/layouts/slider.less',
+		CHILD_URL . '/assets/less/layouts/slideshow-panel.less',
+		CHILD_URL . '/assets/less/layouts/switcher.less',
+		CHILD_URL . '/assets/less/partials/header.less',
+		CHILD_URL . '/assets/less/partials/footer.less',
+		CHILD_URL . '/assets/less/partials/nav.less',
+		CHILD_URL . '/assets/less/partials/sidebar.less',
+		CHILD_URL . '/assets/less/partials/widgets.less',
+		CHILD_URL . '/assets/less/partials/content.less',
+		CHILD_URL . '/assets/less/partials/pages.less',
+		CHILD_URL . '/assets/less/style.less',
+		
 
-	beans_compiler_add_fragment( 'uikit', CHILD_URL . '/assets/js/theme.js', 'js' );
-	beans_compiler_add_fragment( 'uikit', CHILD_URL . '/assets/js/animatedtext.js', 'js' );
+	), 'less' );
+
+	beans_compiler_add_fragment( 'uikit', array(
+		CHILD_URL . '/assets/js/animatedtext.js',
+		CHILD_URL . '/assets/js/theme.js'
+	), 'js' );
 
 //	wst_add_theme_style_as_compiler_fragment();
 

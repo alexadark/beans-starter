@@ -11,7 +11,7 @@ $content     = $item['crb_text_editor'];
 echo beans_open_markup( 'lightbox_gallery_item'.$filter.'', 'div', array( 'class' => 'uk-panel uk-invisible' ) );
 	echo beans_open_markup( 'lightbox-gallery-figure'.$filter.'', 'figure', array( 'class' => 'uk-overlay 
 	uk-overlay-hover' ) );
-		echo beans_open_markup( 'lightbox-gallery-image'.$filter.'', 'img', array(
+		echo beans_selfclose_markup( 'lightbox-gallery-image'.$filter.'', 'img', array(
 		'src'   => $image_url,
 		'class' => 'uk-overlay-scale',
 		'alt'   => $image_alt,
