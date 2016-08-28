@@ -9,7 +9,7 @@ Container::make( 'theme_options', 'Theme Options' )
 		              'text_area'        => 'Text Area',
 		              'slider'           => 'Slider',
 		              'slideshow_panel'  => 'Slideshow Panel',
-		              'parallax'         => 'Parallax Area',
+		              'parallax_area'    => 'Parallax Area',
 		              'panel_switcher'   => 'Panel Switcher',
 		              'lightbox_gallery' => 'Lightbox Gallery',
 		              'icon_text_boxes'  => 'Icon Text Boxes'
