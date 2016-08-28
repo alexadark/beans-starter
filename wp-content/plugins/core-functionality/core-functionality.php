@@ -18,12 +18,13 @@ define( 'PLUGIN_INC', dirname( __FILE__ ) . '/inc/' );
  */
 function wst_load_core_plugin_files() {
 	$filenames = array(
+		'helper-functions.php',
 		'post-types.php',
 		'taxonomies.php',
 		'shortcodes.php',
 		'widgets.php',
 		'builder-functions.php',
-		'helper-functions.php',
+
 	);
 
 	wst_load_core_plugin_specified_files( $filenames );

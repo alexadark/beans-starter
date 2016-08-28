@@ -1,11 +1,13 @@
-<div class="tm-lightbox-gallery <?php echo esc_attr($layout['crb_classes']);?>">
-		<div class="uk-grid <?php echo esc_attr($layout['crb_grid_width']);?>"
-		     data-uk-grid="{gutter:'<?php echo esc_attr($layout['crb_grid_gutter']);?>'}"
-		     data-uk-scrollspy="{cls:'uk-animation-<?php echo esc_attr($layout['crb_animation_name']);?> uk-invisible',
-		     target:'>.uk-panel', delay:<?php echo esc_attr($layout['crb_animation_delay']);?>,
-		     repeat:true}">
+<?php
+$id     = esc_attr( $layout['crb_markupid'] );
+$filter = $id ? '[_' . $id . ']' : '';
 
-			<?php wst_display_lightbox_gallery_items($layout); ?>
-
-</div>
-</div>
+echo beans_open_markup( 'lightbox_gallery_wrapper'.$filter.'', 'div', array( 'class' => 'tm-lightbox-gallery' ) );
+	echo beans_open_markup( 'lightbox_gallery'.$filter.'', 'div', array(
+	'class'             => 'uk-grid uk-grid-width-medium-1-3',
+	'data-uk-grid'      => 'gutter:1',
+	'data-uk-scrollspy' => "{cls:'uk-animation-fade uk-invisible',target:'>.uk-panel', delay:200}"
+) );
+		wst_get_layout_items( $layout, 'crb_gallery_items', 'views/lightbox-gallery-item-view.php' );
+	echo beans_close_markup( 'lightbox_gallery'.$filter.'', 'div' );
+ echo beans_close_markup( 'lightbox_gallery_wrapper'.$filter.'', 'div' );

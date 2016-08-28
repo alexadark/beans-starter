@@ -1,4 +1,32 @@
 <?php
+function counter( ) {
+	static $count = 0;
+	$count++ ;
+	return $count;
+}
+function wst_get_layout($layout_view_path){
+	include($layout_view_path);
+}
+/**
+ * get items from complex fields inside a layout
+ *
+ * @since 1.0.0
+ *
+ * @param array $layout array of available layouts
+ * @param $item_field name of the item field
+ * @param $item_view_path path to the view from here
+ *
+ * @return void
+ */
+function wst_get_layout_items(array $layout, $item_field, $item_view_path){
+	$items = $layout[$item_field];
+	if(!$items){
+		return;
+	}
+	foreach ( $items as $item ) {
+		include($item_view_path);
+	}
+}
 /**
  * Retrieve parameters from attachments
  *
@@ -21,22 +49,6 @@ function wp_get_attachment( $attachment_id ) {
 		'title'       => $attachment->post_title
 	);
 }
-
-/**
- * Allow to upload svg trough wordpress editor
- *
- * @since 1.0.0
- *
- * @param $mimes
- *
- * @return mixed
- */
-function cc_mime_types($mimes) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
-}
-add_filter('upload_mimes', 'cc_mime_types');
-
 
 function hex2rgb( $colour ) {
 	if ( $colour[0] == '#' ) {

@@ -1,15 +1,34 @@
-<div class="tm-slideshow-panel <?php echo $animate_class; ?>">
+<?php
+$id = esc_attr($layout['crb_markupid']);
+$filter = $id ?'[_'.$id.']' : '';
+echo beans_open_markup('slideshow_panel_wrapper'.$filter.'','div',array(
+	'class'=>'tm-slideshow-panel slideshow-panel-animate',
+));
+?>
 	<div class="uk-grid uk-grid-collapse"
 	     data-uk-grid-match>
-		<?php include( 'slider-view.php' ); ?>
+		<?php
+		//image slider
+		echo beans_open_markup('slideshow_panel_image'.$filter.'','div',array(
+			'class'=> 'uk-width-medium-1-2',
+		));
+		include( 'slider-view.php' );
+		echo beans_close_markup('slideshow_panel_image'.$filter.'','div'); //end image slider
 
-		<div class="<?php echo $layout['crb_slider_text_classes']; ?>"
-		     data-uk-slideshow>
+		//text slider
+		echo beans_open_markup('slideshow_panel_text'.$filter.'','div', array(
+			'class'=>'uk-width-medium-1-2 uk-panel-box-secondary uk-flex uk-flex-center uk-flex-middle',
+			'data-uk-slideshow' =>''
+		));
+		?>
+
 			<ul class="uk-slideshow">
-				<?php wst_display_text_slides( $layout ); ?>
+				<?php wst_get_layout_items($layout,'crb_slides_text','views/text-slides-view.php'); ?>
 
 			</ul>
-		</div>
+		<?php beans_close_markup('slideshow_panel_text'.$filter.'','div'); //end slider text?>
 
 	</div>
-</div>
+
+
+<?php echo beans_close_markup('slideshow_panel_wrapper'.$filter.'','div');?>

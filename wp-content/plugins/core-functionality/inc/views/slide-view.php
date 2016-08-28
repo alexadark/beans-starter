@@ -1,8 +1,24 @@
+<?php
+$id = esc_attr($layout['crb_markupid']);
+$filter = $id ?'[_'.$id.']' : '';
+$slide_id              = esc_html( $item['crb_slider_images'] );
+$slide_image           = wp_get_attachment( $slide_id );
+$slide_url             = esc_url( $slide_image['src'] );
+$slide_alt             = esc_attr( $slide_image['alt'] );
+$slide_title           = esc_attr( $slide_image['title'] );
+$slide_caption         = $item['crb_slide_caption'];
+$badge_title           = esc_html( $item['crb_badge_title'] );
+$slide_choice          = $item['crb_type_of_media'];
+$vimeo                 = $item['crb_vimeo'];
+$youtube               = $item['crb_youtube'];
+?>
 <li>
 
-	<?php if ( $badge_title ) { ?>
-		<span class="<?php echo $badge_classes ?>"><?php echo $badge_title; ?></span>
-	<?php }
+	<?php if ( $badge_title ) {
+			echo beans_open_markup( 'panel_badge'.$filter.'', 'span', array( 'class' => 'tm-slideshow-panel-badge uk-badge uk-position-top-right' ) );
+					echo $badge_title;
+			echo beans_close_markup( 'panel_badge'.$filter.'', 'span' );
+			  }
 	if ( $slide_choice == 'image' ) {
 		?>
 
@@ -25,11 +41,11 @@
 
 	if ( ! $slide_caption ) {
 		return;
-	} else { ?>
-		<div class="<?php echo $slide_caption_classes; ?>">
+	} else {
+		echo beans_open_markup( 'slide_caption'.$filter.'', 'div', array( 'class' => 'uk-overlay-panel uk-overlay-background uk-overlay-active  uk-flex uk-flex-center uk-flex-middle uk-text-center' ) ); ?>
 			<div>
 				<?php echo $slide_caption; ?>
 			</div>
-		</div>
-	<?php } ?>
+		<?php echo beans_close_markup( 'slide_caption'.$filter.'', 'div' );
+	 } ?>
 </li>
