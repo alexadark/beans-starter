@@ -43,8 +43,7 @@ function wst_load_metaboxes_files() {
 	$filenames = array(
 		'metaboxes/theme_options.php',
 		'metaboxes/builder-metaboxes.php',
-		'metaboxes/home-mb.php',
-
+		'metaboxes/pages-mb.php',
 	);
 	wst_load_core_plugin_specified_files( $filenames );
 }

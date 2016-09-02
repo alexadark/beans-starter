@@ -1,11 +1,18 @@
 <?php
-function counter( ) {
-	static $count = 0;
-	$count++ ;
-	return $count;
+function wst_get_complex_field_group($group_view_path){
+	include($group_view_path);
 }
-function wst_get_layout($layout_view_path){
-	include($layout_view_path);
+
+function wst_get_items($item_field, $item_view_path){
+$items = carbon_get_the_post_meta($item_field,'complex');
+	if(!$items){
+		return;
+	}
+	foreach ( $items as $item ) {
+		include(($item_view_path));
+
+	}
+
 }
 /**
  * get items from complex fields inside a layout
@@ -26,6 +33,22 @@ function wst_get_layout_items(array $layout, $item_field, $item_view_path){
 	foreach ( $items as $item ) {
 		include($item_view_path);
 	}
+}
+/**
+ * Display the dotnav in simple sliders
+ *
+ * @since 1.0.0
+ *
+ * @param $layout
+ *
+ * @return void
+ */
+function wst_display_dotnav_items_simple( $item_field) {
+	$slides       = carbon_get_the_post_meta($item_field,'complex');
+	$total_nb_of_slides = count( $slides );
+	for ( $nb_of_slides = 0; $nb_of_slides < $total_nb_of_slides; $nb_of_slides ++ ) : ?>
+		<li data-uk-slideshow-item="<?php echo (int) $nb_of_slides; ?>"><a href="#"></a></li>
+	<?php endfor;
 }
 /**
  * Retrieve parameters from attachments
